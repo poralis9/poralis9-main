@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tictactoeNN demo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .back-nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .btn-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+            border: 1px solid #ddd;
+        }
+        .btn-back:hover {
+            background: #f8f9fa;
+            transform: translateX(-3px);
+        }
+        /* 메인 컨테이너가 상대 경로를 가지도록 보정 */
+        body { position: relative; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+</head>
+<body>
+    <!-- 상단 좌측 네비게이션 -->
+    <nav class="back-nav">
+        <a href="../main.html" class="btn-back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            to main
+        </a>
+    </nav>
+
+    <div class="container">
+        <h1>tictactoe_demo</h1>
+        
+        <div class="controls">
+            <button id="btn-first" class="btn active">first (O)</button>
+            <button id="btn-second" class="btn">second (X)</button>
+        </div>
+
+        <div id="status" class="status">loading...</div>
+
+        <div class="board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <button id="btn-reset" class="btn reset" disabled>Retry</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
